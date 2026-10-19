@@ -10,58 +10,36 @@
 img {
     border-radius: 15px;
 }
-main {
-    padding-top: 80px; /* Подберите число, чтобы текст опустился ровно под шапку */
-}
-/* Этот код применяется только на экранах шириной до 768px (телефоны) */
+/* =========================================
+   ПРИНУДИТЕЛЬНОЕ ИСПРАВЛЕНИЕ ДЛЯ ТЕЛЕФОНОВ
+   ========================================= */
 @media (max-width: 768px) {
-    /* Замените .doctor-card на реальное имя класса вашей карточки */
-    .doctor-card { 
-        display: flex;
-        flex-direction: column; /* Ставим фото и текст друг под другом */
-        align-items: center;
-    }
-
-   
-    .doctor-info {
-        position: static; 
-        margin-top: 15px; 
-        text-align: center; 
-    }
-}
-
-@media (max-width: 768px) {
-   
+    
+    /* 1. Перестраиваем карточку заведующего в колонку */
     .head-card {
-        display: flex;
-        flex-direction: column; 
-        align-items: center;    
-        text-align: center;
-        padding: 20px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        height: auto !important; /* Убираем жесткую высоту, если она была */
+        padding: 20px !important;
     }
 
-    .head-card .person-photo {
-        position: static; 
-        margin-bottom: 15px;
+    /* 2. Делаем картинку адаптивной, чтобы она не вылезала за края */
+    .head-card .person-photo img {
+        max-width: 100% !important;
+        height: auto !important;
+        margin-bottom: 15px !important;
     }
 
-    .head-card .role, 
-    .head-card h3, 
+    /* 3. Отменяем абсолютное позиционирование для ВСЕХ текстов внутри карточки */
+    .head-card .role,
+    .head-card h3,
     .head-card .head-label {
-        position: static; 
-        display: block;
-        margin: 5px 0;    
-        width: 100%;
+        position: static !important; /* Убирает наложение */
+        transform: none !important;  /* Убирает возможные сдвиги (translate) */
+        width: 100% !important;
+        margin: 8px 0 !important;
+        display: block !important;
     }
-
-
-    .person-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-}
-main {
-    padding-top: 90px; 
 }
