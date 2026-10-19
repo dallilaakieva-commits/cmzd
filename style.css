@@ -22,10 +22,46 @@ main {
         align-items: center;
     }
 
-    /* Замените .doctor-info на класс блока с текстом */
+   
     .doctor-info {
-        position: static; /* Отключаем абсолютное позиционирование */
-        margin-top: 15px; /* Добавляем отступ от фото */
-        text-align: center; /* Выравниваем текст по центру */
+        position: static; 
+        margin-top: 15px; 
+        text-align: center; 
     }
+}
+
+@media (max-width: 768px) {
+   
+    .head-card {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;    
+        text-align: center;
+        padding: 20px;
+    }
+
+    .head-card .person-photo {
+        position: static; 
+        margin-bottom: 15px;
+    }
+
+    .head-card .role, 
+    .head-card h3, 
+    .head-card .head-label {
+        position: static; 
+        display: block;
+        margin: 5px 0;    
+        width: 100%;
+    }
+
+
+    .person-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+main {
+    padding-top: 90px; 
 }
