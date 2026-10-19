@@ -10,3 +10,22 @@
 img {
     border-radius: 15px;
 }
+main {
+    padding-top: 80px; /* Подберите число, чтобы текст опустился ровно под шапку */
+}
+/* Этот код применяется только на экранах шириной до 768px (телефоны) */
+@media (max-width: 768px) {
+    /* Замените .doctor-card на реальное имя класса вашей карточки */
+    .doctor-card { 
+        display: flex;
+        flex-direction: column; /* Ставим фото и текст друг под другом */
+        align-items: center;
+    }
+
+    /* Замените .doctor-info на класс блока с текстом */
+    .doctor-info {
+        position: static; /* Отключаем абсолютное позиционирование */
+        margin-top: 15px; /* Добавляем отступ от фото */
+        text-align: center; /* Выравниваем текст по центру */
+    }
+}
