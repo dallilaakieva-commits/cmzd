@@ -609,5 +609,81 @@
         width: 100%;
     }
 }
+/* Исправление фотографий специалистов на телефонах */
+max-width: 768px {
+
+    .person-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .person-photo {
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+        margin: 0 auto 15px;
+        overflow: visible;
+    }
+
+    .person-photo img {
+        width: 100%;
+        height: auto;
+        max-height: 450px;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        border-radius: 15px;
+    }
+
+    .person-card h3,
+    .person-card .role {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* Исправление раздела с роликами на телефонах */
+@media screen and (max-width: 768px) {
+
+    .video-grid {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: 100% !important;
+        gap: 18px;
+    }
+
+    .video-grid > * {
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .video-grid iframe,
+    .video-grid video {
+        display: block;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        border-radius: 14px;
+    }
+
+    .video-grid img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .video-grid {
+        overflow: hidden;
+    }
+
+    .section,
+    .container {
+        max-width: 100%;
+        min-width: 0;
+    }
+}
 
 
