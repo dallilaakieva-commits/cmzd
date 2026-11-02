@@ -55,4 +55,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Маленький интерактивный курсор на десктопе
   const dot=$('.cursor-dot'); window.addEventListener('pointermove',e=>{if(dot){dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';}});
+
+// СЛАЙДЕР ФОТОГРАФИЙ НОВОСТИ
+const newsSlider = document.querySelector('.news-slider');
+
+if (newsSlider) {
+    const slides = [...newsSlider.querySelectorAll('.news-slide')];
+    const dots = [...document.querySelectorAll('.news-dots button')];
+    const current = document.getElementById('newsCurrent');
+
+    let activeNewsSlide = 0;
+    let newsTimer;
+
+    function showNewsSlide(index) {
+        activeNewsSlide = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === activeNewsSlide);
+        });
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === activeNewsSlide);
+        });
+
+        if (current) {
+            current.textContent = String(activeNewsSlide + 1).padStart(2, '0');
+        }
+    }
+
+    function startNewsTimer() {
+        clearInterval(newsTimer);
+        newsTimer = setInterval(() => {
+            showNewsSlide(activeNewsSlide + 1);
+        }, 5000);
+    }
+
+    newsSlider.querySelector('.news-prev')
+        ?.addEventListener('click', () => {
+            showNewsSlide(activeNewsSlide - 1);
+            startNewsTimer();
+        });
+
+    newsSlider.querySelector('.news-next')
+        ?.addEventListener('click', () => {
+            showNewsSlide(activeNewsSlide + 1);
+            startNewsTimer();
+        });
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            showNewsSlide(i);
+            startNewsTimer();
+        });
+    });
+
+    showNewsSlide(0);
+    startNewsTimer();
+}
 });
