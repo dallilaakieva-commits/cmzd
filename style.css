@@ -575,8 +575,7 @@
         grid-template-columns: 1fr;
     }
 }
-/* Исправление фотографий специалистов на телефонах */
-max-width: 768px {
+@media (max-width: 768px){
 
     .person-card {
         display: flex;
