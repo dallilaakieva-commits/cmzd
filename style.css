@@ -575,3 +575,40 @@
         grid-template-columns: 1fr;
     }
 }
+/* Исправление фотографий специалистов на телефонах */
+max-width: 768px {
+
+    .person-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .person-photo {
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+        margin: 0 auto 15px;
+        overflow: visible;
+    }
+
+    .person-photo img {
+        width: 100%;
+        height: auto;
+        max-height: 450px;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        border-radius: 15px;
+    }
+
+    .person-card h3,
+    .person-card .role {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+
